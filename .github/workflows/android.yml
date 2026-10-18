@@ -17,8 +17,8 @@ jobs:
       - run: npm install
       - run: npm run css
       - run: npx cap add android
-      - name: Force landscape
-        run: sed -i 's/<activity/<activity android:screenOrientation="sensorLandscape"/' android/app/src/main/AndroidManifest.xml
+      - name: Fullscreen and rotation patch
+        run: node scripts/patch-android.js
       - run: npx cap sync android
       - run: chmod +x android/gradlew && cd android && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
