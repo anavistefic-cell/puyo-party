@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   push:
     branches: [main, master]
+permissions:
+  contents: write
 jobs:
   apk:
     runs-on: ubuntu-latest
@@ -23,3 +25,10 @@ jobs:
         with:
           name: puyo-party-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+      - name: Publish APK as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp android/app/build/outputs/apk/debug/app-debug.apk puyo-party.apk
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest puyo-party.apk --title "Puyo Party APK" --notes "Download puyo-party.apk and install it on your Android phone."
