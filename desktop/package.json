@@ -1,0 +1,17 @@
+{
+  "name": "puyo-party-desktop",
+  "version": "1.0.0",
+  "description": "Puyo Party desktop edition",
+  "author": "Puyo Party",
+  "main": "main.js",
+  "devDependencies": { "electron": "^31.0.0", "electron-builder": "^24.13.3" },
+  "build": {
+    "appId": "com.puyoparty.desktop",
+    "productName": "Puyo Party",
+    "files": ["main.js", "app/**"],
+    "directories": { "output": "dist" },
+    "win": { "target": "portable", "artifactName": "PuyoParty-Windows.${ext}" },
+    "mac": { "target": "zip", "artifactName": "PuyoParty-Mac.${ext}" },
+    "linux": { "target": "AppImage", "artifactName": "PuyoParty-Linux.${ext}", "category": "Game" }
+  }
+}
