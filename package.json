@@ -1,0 +1,12 @@
+{
+  "name": "puyo-party",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "css": "node scripts/inline-css.js" },
+  "dependencies": {
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/cli": "^6.1.0",
+    "@capacitor/core": "^6.1.0"
+  },
+  "devDependencies": { "tailwindcss": "3.4.17" }
+}
